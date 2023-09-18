@@ -1,0 +1,33 @@
+body {
+  background-color: lightskyblue;
+}
+div.form3 {
+  background: url(/img/HD-wallpaper-space-gamer-girl-anime.jpg) center;
+  background-repeat: no-repeat;
+  height: 450px;
+}
+form {
+  width: 50%;
+  margin: auto;
+}
+
+.div1 div {
+  margin-top: 30px;
+}
+input {
+  width: 100%;
+}
+.button2 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+label {
+  color: white;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  color: palevioletred;
+}
