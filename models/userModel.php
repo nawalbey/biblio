@@ -13,7 +13,7 @@ class User
         try {
             $request->execute(array($name, $email, $password));
             // rediriger vers la page login.php
-            header("Location: http://biblio.com/views/login");
+            header("Location: http://localhost/biblio/login");
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -25,7 +25,7 @@ class User
         // se connecter a la bd
         $db = Database::dbConnect();
         // preparer la requete
-        $request = $db->prepare("SELECT * FROM user WHERE email = ?");
+        $request = $db->prepare("SELECT * FROM users WHERE email = ?");
         // executer la requete
         try {
             $request->execute(array($email));
@@ -38,9 +38,10 @@ class User
                 $_SESSION["error_message"] = "cet email n'existe pas";
             } else if (password_verify($password, $user['password'])) {
                 // il a taper le bon mail et le bon mot de passe
-                setcookie("id_user", $user['id'], time() + 86400, "/", "http://localhost/biblio/", false, true);
+                setcookie("id_user", $user['id'], time() + 86400, "/", "localhost", false, true);
+                setcookie("user_role", $user['role'], time() + 86400, "/", "localhost", false, true);
 
-                header("location: http://localhost/biblio/");
+                header("location: http://localhost/biblio/list_book");
             } else {
                 $_SESSION["error_message"] = "Mot de passe incorrect";
             }

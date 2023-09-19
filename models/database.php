@@ -6,7 +6,7 @@ class Database
     {
         $conn = null;
         try {
-            $conn = new PDO("mysql:host=localhost;dbname=biblio", "root", "");
+            $conn = new PDO("mysql:host=localhost;dbname=biblio_db", "root", "");
 
         } catch (PDOException $e) {
             $conn = $e->getMessage();
